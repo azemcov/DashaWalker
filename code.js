@@ -1,6 +1,10 @@
 {
     let x = document.getElementById('x');
     let y = document.getElementById('y');
+    document.getElementById('up').addEventListener('click',yUp)
+    document.getElementById('down').addEventListener('click',yDown)
+    document.getElementById('left').addEventListener('click',xLeft)
+    document.getElementById('right').addEventListener('click',xRight)
     let ball = document.getElementById('ball')
     let xN = 0;
     let yN = 0;
