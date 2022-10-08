@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <title>Document</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <section>
+                <div id="map">
+                    <img src="IMG_1132.PNG" alt="Дашино фото" id="ball">
+                </div>
+            </section>
+            <section>
+                <article class="xy">
+                    <p id="x">x:0</p>
+                </article>
+                <article class="xy">
+                    <p id="y">y:0</p>
+                </article>
+            </section>
+            <section>
+                <input type="button" value="↑" onclick="yUp()">
+            </section>
+            <section>
+                <input type="button" value="←" onclick="xLeft()">
+                <input type="button" value="↓" onclick="yDown()">
+                <input type="button" value="→" onclick="xRight()">  
+            </section>
+        </body>
+        <script src="code.js"></script>
+    </html>

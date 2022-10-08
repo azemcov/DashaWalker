@@ -1,0 +1,10 @@
+* {margin: 0;padding: 0;box-sizing:border-box;}
+html {font-size: 50px;}
+body {margin-top: 20px;background-color: #222;}
+input[type="button"] {font-size: 30px;width: 100px;height: 100px;background-color: #333;}
+#map {width: 1002px;height: 502px;border: 1px dashed green;}
+#ball {width: 50px;height: 50px;position: relative;top:0rem;left:0rem;display: flex;justify-content: center;align-items: center;}
+.xy {width: 200px;}
+p {font-size: 20px;color: green;}
+section {display: flex;justify-content: center;}
+article {display: flex;justify-content: center;}
