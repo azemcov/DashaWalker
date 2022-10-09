@@ -11,10 +11,10 @@
     document.getElementById('left').onclick = xLeft;
     document.getElementById('right').onclick = xRight;
     //for phones
-    document.getElementById('up').addEventListener('touchstart', yUp);
-    document.getElementById('down').addEventListener('touchstart', yDown);
-    document.getElementById('left').addEventListener('touchstart', xLeft);
-    document.getElementById('right').addEventListener('touchstart', xRight);
+    document.getElementById('up').addEventListener('ontouchstart', yUp);
+    document.getElementById('down').addEventListener('ontouchstart', yDown);
+    document.getElementById('left').addEventListener('ontouchstart', xLeft);
+    document.getElementById('right').addEventListener('ontouchstart', xRight);
 
     function yUp()
     {
