@@ -6,10 +6,10 @@
     let yN = 0;
 
     //for PC
-    document.getElementById('up').onclick = yUp;
-    document.getElementById('down').onclick = yDown;
-    document.getElementById('left').onclick = xLeft;
-    document.getElementById('right').onclick = xRight;
+    document.getElementById('up').mousedown = yUp;
+    document.getElementById('down').mousedown = yDown;
+    document.getElementById('left').mousedown = xLeft;
+    document.getElementById('right').mousedown = xRight;
     //for phones
     document.getElementById('up').addEventListener('ontouchstart', yUp);
     document.getElementById('down').addEventListener('ontouchstart', yDown);
