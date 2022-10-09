@@ -11,6 +11,21 @@
     document.getElementById('right').addEventListener('click', xRight);
     document.getElementById('wtf').addEventListener('click', yDown);
 
+    document.getElementById("demo").addEventListener("click", myFunction);
+
+    function myFunction()
+    {
+        if (yN>-9)
+        {
+            yN--;
+            y.innerHTML = 'y:'+yN;
+            ball.style.top = -yN+'rem'
+        }
+        else {}
+    }
+
+
+
     function yUp()
     {
         if (yN<0)
