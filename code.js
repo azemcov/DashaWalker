@@ -5,15 +5,16 @@
     let xN = 0;
     let yN = 0;
 
-//     document.getElementById('up').onclick = yUp;
-//     document.getElementById('down').onclick = yDown;
-//     document.getElementById('left').onclick = xLeft;
-//     document.getElementById('right').onclick = xRight;
-
-    document.getElementById('up').addEventListener("click", yUp);
-    document.getElementById('down').addEventListener("click", yDown);
-    document.getElementById('left').addEventListener("click", xLeft);
-    document.getElementById('right').addEventListener("click", xRight);
+    //for PC
+    document.getElementById('up').onclick = yUp;
+    document.getElementById('down').onclick = yDown;
+    document.getElementById('left').onclick = xLeft;
+    document.getElementById('right').onclick = xRight;
+    //for phones
+    document.getElementById('up').addEventListener('touchend', yUp);
+    document.getElementById('down').addEventListener('touchend', yDown);
+    document.getElementById('left').addEventListener('touchend', xLeft);
+    document.getElementById('right').addEventListener('touchend', xRight);
 
     function yUp()
     {
