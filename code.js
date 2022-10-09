@@ -12,16 +12,9 @@
 
     document.getElementById("demo").addEventListener("click", myFunction);
 
-    function myFunction() 
-    {
-        if (yN>-9)
-        {
-            yN--;
-            y.innerHTML = 'y:'+yN;
-            ball.style.top = -yN+'rem'
-        }
-        else {}
-    }
+function myFunction() {
+  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+}
 
     function yUp()
     {
