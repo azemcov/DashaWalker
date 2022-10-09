@@ -1,33 +1,22 @@
 <!DOCTYPE html>
-    <html lang="ru">
-        <head>
-            <meta charset="UTF-8">
-            <title>Document</title>
-            <link rel="stylesheet" href="style.css">
-        </head>
-        <body>
-            <section>
-                <div id="map">
-                    <img src="IMG_1132.PNG" alt="Дашино фото" id="ball">
-                </div>
-            </section>
-            <section>
-                <article class="xy">
-                    <p id="x">x:0</p>
-                </article>
-                <article class="xy">
-                    <p id="y">y:0</p>
-                </article>
-            </section>
-            <section>
-                <input type="button" value="↑" id="up">
-                <div id="wtf">down</div>
-            </section>
-            <section>
-                <input type="button" value="←" id="left">
-                <input type="button" value="↓" id="down">
-                <input type="button" value="→" id="right">  
-            </section>
-        </body>
-        <script src="code.js"></script>
-    </html>
+<html>
+<body>
+
+<h1>HTML DOM Events</h1>
+<h2>The onclick Event</h2>
+
+<p>Use the addEventListener() method to attach a "click" event to a p element:</p>
+
+<p id="demo">Click me.</p>
+
+<script>
+document.getElementById("demo").addEventListener("click", myFunction);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+}
+</script>
+
+</body>
+</html>
+
