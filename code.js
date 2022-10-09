@@ -6,15 +6,15 @@
     let yN = 0;
 
     //for PC
-    document.getElementById('up').mousedown = yUp;
-    document.getElementById('down').mousedown = yDown;
-    document.getElementById('left').mousedown = xLeft;
-    document.getElementById('right').mousedown = xRight;
+    document.getElementById('up').onclick = yUp;
+    document.getElementById('down').onclick = yDown;
+    document.getElementById('left').onclick = xLeft;
+    document.getElementById('right').onclick = xRight;
     //for phones
-    document.getElementById('up').addEventListener('ontouchstart', yUp);
-    document.getElementById('down').addEventListener('ontouchstart', yDown);
-    document.getElementById('left').addEventListener('ontouchstart', xLeft);
-    document.getElementById('right').addEventListener('ontouchstart', xRight);
+    document.getElementById('up').addEventListener('onpointerdown', yUp);
+    document.getElementById('down').addEventListener('onpointerdown', yDown);
+    document.getElementById('left').addEventListener('onpointerdown', xLeft);
+    document.getElementById('right').addEventListener('onpointerdown', xRight);
 
     function yUp()
     {
