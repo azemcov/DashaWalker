@@ -9,11 +9,10 @@
     document.getElementById('down').addEventListener('click', yDown);
     document.getElementById('left').addEventListener('click', xLeft);
     document.getElementById('right').addEventListener('click', xRight);
-    document.getElementById('wtf').addEventListener('click', yDown);
 
     document.getElementById("demo").addEventListener("click", myFunction);
 
-    function myFunction()
+    function myFunction() 
     {
         if (yN>-9)
         {
@@ -23,8 +22,6 @@
         }
         else {}
     }
-
-
 
     function yUp()
     {
