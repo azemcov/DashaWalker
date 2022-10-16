@@ -1,57 +1,91 @@
-{
-    let x = document.getElementById('x');
-    let y = document.getElementById('y');
-    let ball = document.getElementById('ball');
-    let xN = 0;
-    let yN = 0;
+{//start
 
-    document.getElementById('up').addEventListener('click', yUp);
-    document.getElementById('down').addEventListener('click', yDown);
-    document.getElementById('left').addEventListener('click', xLeft);
-    document.getElementById('right').addEventListener('click', xRight);
-
-    document.getElementById("demo").addEventListener("click", myFunction);
-
-function myFunction() {
-  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
-}
-
-    function yUp()
+    let yN = 4; //ball XY in massive & position in game
+    let xN = 4; //ball XY in massive & position in game
+    let yMap = 5; //level XY in massive
+    let xMap = 5; //level XY in massive
+    let yMapPos = -1; //map position in game
+    let xMapPos = -1; //map position in game
+    document.getElementById('up').addEventListener('pointerdown', goUp);
+    document.getElementById('left').addEventListener('pointerdown', goLeft);
+    document.getElementById('down').addEventListener('pointerdown', goDown);
+    document.getElementById('right').addEventListener('pointerdown', goRight);
+  //  document.getElementById('up').addEventListener('pointerup', stopWalking);
+  //  document.getElementById('left').addEventListener('pointerup', stopWalking);
+  //  document.getElementById('down').addEventListener('pointerup', stopWalking);
+  //  document.getElementById('right').addEventListener('pointerup', stopWalking);
+    document.getElementById('print').innerHTML='проверка'
+    function    goUp(){checkUp();};
+    function  goLeft(){checkLeft();};
+    function  goDown(){checkDown();};
+    function goRight(){checkRight();};
+    let sector = [['B','B','B','B','B','B','B','B','B'],
+                  ['B','O','O','O','O','O','O','O','B'],
+                  ['B','O','O','O','O','O','O','O','B'],
+                  ['B','O','O','O','O','O','O','O','B'],
+                  ['B','O','O','O','O','O','O','O','B'],
+                  ['B','O','O','O','O','O','O','O','B'],
+                  ['B','O','O','O','O','O','O','O','B'],
+                  ['B','O','O','O','O','O','O','O','B'],
+                  ['B','B','B','B','B','B','B','B','B']];
+    
+    let level =[['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
+                ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','O','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
+                ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','O','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
+                ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','O','O','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
+                ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','O','O','B','B','B','B','B','B','B','B','B','B','B','B','B','B','O','O','O','O','O','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
+                ['B','B','B','B','B','O','B','O','B','B','B','B','B','B','B','B','B','B','O','O','O','O','O','O','B','B','B','B','B','B','B','B','B','B','O','O','O','O','O','O','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
+                ['B','B','B','O','B','O','B','O','O','O','O','B','B','B','O','O','O','O','O','B','B','B','O','O','O','B','B','B','B','B','B','B','B','B','B','O','B','O','O','B','B','B','B','B','B','B','B','B','B','O','B','B','B','B','B'],
+                ['B','B','B','O','O','O','O','O','O','B','O','O','O','O','O','O','O','O','B','B','O','O','O','O','O','O','B','B','B','B','B','B','B','B','B','B','O','O','O','B','B','B','B','B','B','B','B','O','O','O','O','B','B','B','B'],
+                ['B','B','B','O','O','O','O','O','O','O','O','O','O','O','O','B','O','O','O','O','O','O','O','O','O','O','O','O','B','B','B','B','B','B','B','B','B','O','B','B','B','B','B','B','B','O','O','O','O','O','O','O','B','B','B'],
+                ['B','B','O','B','O','O','O','O','O','O','O','O','O','B','B','B','O','O','O','O','B','O','O','O','O','O','O','O','O','O','B','B','B','B','B','B','B','O','B','B','B','B','B','O','O','O','O','O','O','O','O','O','B','B','B'],
+                ['B','B','B','O','B','B','O','O','B','B','O','B','B','B','O','O','O','O','O','B','O','B','O','O','O','O','O','O','O','B','B','B','B','B','O','B','O','O','B','B','B','B','O','O','O','O','O','O','O','O','O','B','B','B','B'],
+                ['B','B','B','B','B','B','B','B','B','O','O','O','B','B','B','O','O','O','O','O','O','O','O','O','O','B','B','B','O','B','B','B','B','B','O','O','O','O','O','B','B','O','O','O','O','O','O','O','O','O','O','O','O','B','B'],
+                ['B','B','B','B','B','B','B','O','O','O','O','O','O','O','B','B','O','O','O','O','O','O','O','O','O','O','B','O','B','B','B','O','O','O','O','O','O','O','O','O','B','O','O','O','O','O','O','O','O','O','O','O','B','B','B'],
+                ['B','B','B','B','B','B','O','O','O','O','O','O','O','O','O','B','B','B','O','O','O','O','O','B','O','B','B','B','B','B','B','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','B','B','B','B','B'],
+                ['B','B','B','B','B','O','O','B','O','O','O','O','O','O','B','O','B','B','B','B','O','B','B','B','B','B','B','B','B','B','O','O','O','O','O','O','O','O','O','O','B','O','O','O','O','O','O','O','O','O','B','B','B','B','B'],
+                ['B','B','B','B','O','O','O','O','O','O','O','O','B','O','O','O','O','B','B','O','O','B','B','B','B','B','B','B','B','O','O','O','O','O','O','O','O','O','O','B','B','O','O','O','O','O','O','O','O','O','B','B','B','B','B'],
+                ['B','B','B','B','O','O','O','O','O','O','O','O','O','B','B','O','B','B','B','B','B','B','B','B','B','B','B','B','O','O','O','O','O','O','O','O','O','O','O','B','B','O','O','O','O','O','O','O','O','O','B','B','B','B','B'],
+                ['B','B','B','B','O','O','O','O','O','O','O','O','B','O','O','B','B','B','B','O','B','B','B','B','B','B','O','O','O','O','O','O','O','O','O','O','O','O','B','B','B','O','O','O','O','O','O','O','O','O','B','B','B','B','B'],
+                ['B','B','B','B','O','O','O','O','O','B','O','B','O','O','B','O','O','O','O','O','O','O','B','B','O','O','B','B','O','O','O','O','O','O','O','B','O','O','B','B','B','O','O','O','O','O','O','O','O','O','O','B','B','B','B'],
+                ['B','B','B','B','O','O','O','B','B','B','O','O','O','B','B','O','O','O','B','O','O','O','O','B','B','O','B','B','O','O','O','B','O','O','B','O','O','B','B','B','O','O','O','O','O','O','O','O','O','O','O','O','B','B','B'],
+                ['B','B','B','O','O','O','O','B','B','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','B','O','O','O','O','O','O','O','O','B','B','O','B','B','B','B','O','O','O','O','O','O','O','O','B','O','O','O','O','B','B'],
+                ['B','B','B','O','O','O','B','B','B','O','O','O','O','O','B','B','O','O','O','O','O','O','O','O','B','O','O','O','O','O','B','B','O','O','O','B','B','B','B','O','O','O','O','O','O','O','O','O','O','O','O','O','O','B','B'],
+                ['B','B','B','B','O','O','B','B','O','O','O','O','O','B','O','O','B','O','B','O','O','O','O','O','B','O','O','O','O','O','O','O','O','O','B','B','B','B','O','O','O','O','B','O','O','B','O','O','B','O','O','B','O','B','B'],
+                ['B','B','B','B','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','B','B','O','O','B','B','B','O','O','O','O','O','O','O','O','B','O','B','B','O','O','O','O','B'],
+                ['B','B','B','B','B','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','O','B','O','O','O','O','O','O','O','B','O','B','B','B','B','O','O','O','O','O','O','O','O','B','O','B','B','O','O','O','O','B'],
+                ['B','B','B','B','B','B','B','O','O','O','O','O','O','O','O','O','O','O','O','O','O','B','B','B','B','B','O','B','O','B','O','O','O','B','B','B','B','B','O','O','O','O','O','B','O','B','B','B','O','O','O','O','B','O','B'],
+                ['B','B','B','B','B','B','B','B','B','O','O','O','O','O','O','O','O','O','O','B','B','O','O','O','O','B','B','B','B','B','B','O','B','B','B','B','B','O','O','O','O','O','O','O','O','O','B','O','O','O','B','O','O','B','B'],
+                ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','O','O','O','O','O','O','O','O','O','O','O','B','B','B','B','B','B','B','B','B','B','B','B','O','O','O','O','O','O','O','O','O','O','O','O','O','O','B','B'],
+                ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','O','O','B','O','O','O','B','O','B','B','B','B','B','B','B','B','B','B','B','B','O','O','O','O','O','O','O','B','O','O','O','O','B','B','B'],
+                ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','O','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','O','O','O','O','O','O','O','O','O','O','O','B','B','B','B'],
+                ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','O','O','O','O','O','B','B','B','B','B'],
+                ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
+                ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B']];
+    
+    function checkUp()
     {
-        if (yN<0)
-        {
-            yN++;
-            y.innerHTML = 'y:'+yN;
-            ball.style.top = -yN+'rem'
-        }
-        else {}
+           if (sector[yN-1][xN]=='O'&&level[yMap-1][xMap]=='O'){yN--;yMap--;document.getElementById('ball').style.top=yN+'rem';}
+      else if (sector[yN-1][xN]=='B'&&level[yMap-1][xMap]=='O'){yMap--;yMapPos++;document.getElementById('map').style.top=yMapPos+'rem';}
+      else {}
     }
-    function yDown()
+    function checkLeft()
     {
-        if (yN>-9)
-        {
-            yN--;
-            y.innerHTML = 'y:'+yN;
-            ball.style.top = -yN+'rem'
-        }
-        else {}
+           if (sector[yN][xN-1]=='O'&&level[yMap][xMap-1]=='O'){xN--;xMap--;document.getElementById('ball').style.left=xN+'rem';}
+      else if (sector[yN][xN-1]=='B'&&level[yMap][xMap-1]=='O'){xMap--;xMapPos++;document.getElementById('map').style.left=xMapPos+'rem';}
+      else {}
     }
-    function xLeft()
+    function checkDown()
     {
-        if (xN>0)
-        {
-            xN--;
-            x.innerHTML = 'x:'+xN;
-            ball.style.left = xN+'rem'
-        }
+           if (sector[yN+1][xN]=='O'&&level[yMap+1][xMap]=='O'){yN++;yMap++;document.getElementById('ball').style.top=yN+'rem';}
+      else if (sector[yN+1][xN]=='B'&&level[yMap+1][xMap]=='O'){yMap++;yMapPos--;document.getElementById('map').style.top=yMapPos+'rem';}
+      else {}
     }
-    function xRight()
+    function checkRight()
     {
-        if (xN<19)
-        {
-            xN++;
-            x.innerHTML = 'x:'+xN;
-            ball.style.left = xN+'rem'
-        }
+           if (sector[yN][xN+1]=='O'&&level[yMap][xMap+1]=='O'){xN++;xMap++;document.getElementById('ball').style.left=xN+'rem';}
+      else if (sector[yN][xN+1]=='B'&&level[yMap][xMap+1]=='O'){xMap++;xMapPos--;document.getElementById('map').style.left=xMapPos+'rem';}
+      else {}
     }
-}
+    
+  }//end

@@ -1,33 +1,32 @@
-<!DOCTYPE html>
-    <html lang="ru">
-        <head>
-            <meta charset="UTF-8">
-            <title>Document</title>
-            <link rel="stylesheet" href="style.css">
-        </head>
-        <body>
-            <section>
-                <div id="map">
-                    <img src="IMG_1132.PNG" alt="Дашино фото" id="ball">
-                </div>
-            </section>
-            <section>
-                <article class="xy">
-                    <p id="x">x:0</p>
-                </article>
-                <article class="xy">
-                    <p id="y">y:0</p>
-                </article>
-            </section>
-            <section>
-                <input type="button" value="↑" id="up">
-                <p id="demo">Click me.</p>
-            </section>
-            <section>
-                <input type="button" value="←" id="left">
-                <input type="button" value="↓" id="down">
-                <input type="button" value="→" id="right">  
-            </section>
-        </body>
-        <script src="code.js"></script>
-    </html>
+<!doctype html>
+  <html lang="ru">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Document</title>
+      <link rel="stylesheet" href="style.css">  
+    </head>
+    <body>
+      <section>
+        <p id="print">listerning...</p>
+      </section>
+      <section>
+        <div id="game">
+          <div id="walking_sector">
+            <div id="map"></div>
+            <div id="ball">
+                <img src="dasha.png" alt="Dasha" id="ballimg">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <input type="button" id="up" value="/\">
+      </section>
+      <section>
+        <input type="button" id="left" value="<">
+        <input type="button" id="down" value="\/">
+        <input type="button" id="right" value=">">
+      </section>
+      <script src="code.js"></script>
+    </body>
+  </html>

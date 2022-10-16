@@ -1,10 +1,12 @@
-* {margin: 0;padding: 0;box-sizing:border-box;}
-html {font-size: 50px;}
-body {margin-top: 20px;background-color: #222;}
-input[type="button"] {font-size: 30px;width: 200px;height: 200px;background-color: #333;}
-#map {width: 1002px;height: 502px;border: 1px dashed green;}
-#ball {width: 50px;height: 50px;position: relative;top:0rem;left:0rem;display: flex;justify-content: center;align-items: center;}
-.xy {width: 200px;}
-p {font-size: 20px;color: green;}
-section {display: flex;justify-content: center;}
-article {display: flex;justify-content: center;}
+* {margin:0;padding:0;box-sizing:border-box;}
+html {font-size:40px;}
+body {background-color:gray;} 
+section {display:flex;justify-content:center;align-items: center;}
+input[type=button]{width:100px;height:100px;}
+#ball {width: 1rem;height:1rem;border: 1px solid red;top:4rem;left:4rem;position:absolute;}
+#ballimg {width: 2rem;height:2rem;position: absolute;top: -0.5rem;left: -0.5rem;}
+#walking_sector {width:9rem;height:9rem;border: 1px solid green;border-style:dashed;position: relative;}
+#game {width:calc(11rem + 2px);height:calc(11rem + 2px);border: 1px solid blue;display:flex;justify-content:center;align-items: center;
+    /* clip-path: polygon(5% 5%, 5% 95%,95% 95%,95% 5%); */
+}
+#map {width:55rem;height:33rem;top:-1rem;left:-1rem;z-index: -1;position: absolute;background-image: url(level.png);background-size: 100%;}
