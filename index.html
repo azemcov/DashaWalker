@@ -1,35 +1,19 @@
-<!doctype html>
-  <html lang="ru">
-    <head>
-      <meta charset="UTF-8" />
-      <title>Document</title>
-      <link rel="stylesheet" href="style.css">  
-    </head>
-    <body>
-      <section>
-        <p id="print">listerning...</p>
-      </section>
-      <section>
-        <div id="game">
-          <div id="walking_sector">
-            <div id="map">
-              <div id="sea"></div>
-              <div id="mappic"></div>
-            </div>
-            <div id="ball">
-                <img src="dasha.png" alt="Dasha" id="ballimg">
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <button id="up"></button>
-      </section>
-      <section>
-        <input type="button" id="left" value="<">
-        <input type="button" id="down" value="\/">
-        <input type="button" id="right" value=">">
-      </section>
-      <script src="code.js"></script>
-    </body>
-  </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <p id="print">Нажми кнопку, чтобы поменять надпись</p>
+    <button id="mybutton">Кнопка</button>
+    <script>
+        {
+            let x = 1;
+            document.getElementById('mybutton').addEventListener('click',one);
+            function one(){x++;document.getElementById('print').innerHTML='Текст изменён '+x+' раз!'};
+        }
+    </script>
+</body>
+</html>
