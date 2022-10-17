@@ -11,8 +11,8 @@
     <script>
         {
             let x = 1;
-            document.getElementById('mybutton').addEventListener('click',one);
-            function one(){document.getElementById('print').innerHTML='Текст изменён '+x+' раз!'};
+            document.getElementById('mybutton').addEventListener('pointerdown',one);
+            function one(){x++;document.getElementById('print').innerHTML='Текст изменён '+x+' раз!'};
         }
     </script>
 </body>
