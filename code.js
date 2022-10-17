@@ -15,7 +15,7 @@
   //  document.getElementById('down').addEventListener('pointerup', stopWalking);
   //  document.getElementById('right').addEventListener('pointerup', stopWalking);
     document.getElementById('print').innerHTML='проверка'
-    function    goUp(){xN++;document.getElementById('print').innerHTML=xN;};
+    function    goUp(){xN+=1;document.getElementById('print').innerHTML=xN;};
     function  goLeft(){checkLeft();};
     function  goDown(){checkDown();};
     function goRight(){checkRight();};
