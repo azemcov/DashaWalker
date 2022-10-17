@@ -15,7 +15,7 @@
   //  document.getElementById('down').addEventListener('pointerup', stopWalking);
   //  document.getElementById('right').addEventListener('pointerup', stopWalking);
     document.getElementById('print').innerHTML='проверка'
-    function    goUp(){checkUp();};
+    function    goUp(){document.getElementById('print').innerHTML='хуетень какая-то';};
     function  goLeft(){checkLeft();};
     function  goDown(){checkDown();};
     function goRight(){checkRight();};
@@ -63,10 +63,7 @@
                 ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
                 ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B']];
     
-    function checkUp()
-    {
-        document.getElementById('print').innerHTML='хуетень какая-то'
-    }
+
     function checkLeft()
     {
            if (sector[yN][xN-1]=='O'&&level[yMap][xMap-1]=='O'){xN--;xMap--;document.getElementById('ball').style.left=xN+'rem';}
