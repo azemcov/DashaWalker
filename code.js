@@ -65,9 +65,7 @@
     
     function checkUp()
     {
-           if (sector[yN-1][xN]=='O'&&level[yMap-1][xMap]=='O'){yN--;yMap--;document.getElementById('ball').style.top=yN+'rem';}
-      else if (sector[yN-1][xN]=='B'&&level[yMap-1][xMap]=='O'){yMap--;yMapPos++;document.getElementById('map').style.top=yMapPos+'rem';}
-      else {}
+        document.getElementById('print').innerHTML='хуетень какая-то'
     }
     function checkLeft()
     {
