@@ -6,19 +6,13 @@
     let xMap = 5; //level XY in massive
     let yMapPos = -1; //map position in game
     let xMapPos = -1; //map position in game
-    document.getElementById('up').addEventListener('pointerdown', goUp);
-    document.getElementById('left').addEventListener('pointerdown', goLeft);
-    document.getElementById('down').addEventListener('pointerdown', goDown);
-    document.getElementById('right').addEventListener('pointerdown', goRight);
+
   //  document.getElementById('up').addEventListener('pointerup', stopWalking);
   //  document.getElementById('left').addEventListener('pointerup', stopWalking);
   //  document.getElementById('down').addEventListener('pointerup', stopWalking);
   //  document.getElementById('right').addEventListener('pointerup', stopWalking);
     document.getElementById('print').innerHTML='проверка'
-    function    goUp(){xN+=1;document.getElementById('print').innerHTML=xN;};
-    function  goLeft(){checkLeft();};
-    function  goDown(){checkDown();};
-    function goRight(){checkRight();};
+
     let sector = [['B','B','B','B','B','B','B','B','B'],
                   ['B','O','O','O','O','O','O','O','B'],
                   ['B','O','O','O','O','O','O','O','B'],
@@ -63,24 +57,28 @@
                 ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'],
                 ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B']];
     
-
-    function checkLeft()
-    {
-           if (sector[yN][xN-1]=='O'&&level[yMap][xMap-1]=='O'){xN--;xMap--;document.getElementById('ball').style.left=xN+'rem';}
-      else if (sector[yN][xN-1]=='B'&&level[yMap][xMap-1]=='O'){xMap--;xMapPos++;document.getElementById('map').style.left=xMapPos+'rem';}
-      else {}
-    }
-    function checkDown()
-    {
-           if (sector[yN+1][xN]=='O'&&level[yMap+1][xMap]=='O'){yN++;yMap++;document.getElementById('ball').style.top=yN+'rem';}
-      else if (sector[yN+1][xN]=='B'&&level[yMap+1][xMap]=='O'){yMap++;yMapPos--;document.getElementById('map').style.top=yMapPos+'rem';}
-      else {}
-    }
-    function checkRight()
-    {
-           if (sector[yN][xN+1]=='O'&&level[yMap][xMap+1]=='O'){xN++;xMap++;document.getElementById('ball').style.left=xN+'rem';}
-      else if (sector[yN][xN+1]=='B'&&level[yMap][xMap+1]=='O'){xMap++;xMapPos--;document.getElementById('map').style.left=xMapPos+'rem';}
-      else {}
-    }
-    
+document.getElementById('up').onclick = function()
+{
+       if (sector[yN-1][xN]=='O'&&level[yMap-1][xMap]=='O'){yN--;yMap--;document.getElementById('ball').style.top=yN+'rem';}
+  else if (sector[yN-1][xN]=='B'&&level[yMap-1][xMap]=='O'){yMap--;yMapPos++;document.getElementById('map').style.top=yMapPos+'rem';}
+  else {}
+};
+document.getElementById('left').onclick = function()
+{
+       if (sector[yN][xN-1]=='O'&&level[yMap][xMap-1]=='O'){xN--;xMap--;document.getElementById('ball').style.left=xN+'rem';}
+  else if (sector[yN][xN-1]=='B'&&level[yMap][xMap-1]=='O'){xMap--;xMapPos++;document.getElementById('map').style.left=xMapPos+'rem';}
+  else {}
+}
+document.getElementById('down').onclick = function()
+{
+      if (sector[yN+1][xN]=='O'&&level[yMap+1][xMap]=='O'){yN++;yMap++;document.getElementById('ball').style.top=yN+'rem';}
+  else if (sector[yN+1][xN]=='B'&&level[yMap+1][xMap]=='O'){yMap++;yMapPos--;document.getElementById('map').style.top=yMapPos+'rem';}
+  else {}
+}
+document.getElementById('right').onclick = function()
+{
+       if (sector[yN][xN+1]=='O'&&level[yMap][xMap+1]=='O'){xN++;xMap++;document.getElementById('ball').style.left=xN+'rem';}
+  else if (sector[yN][xN+1]=='B'&&level[yMap][xMap+1]=='O'){xMap++;xMapPos--;document.getElementById('map').style.left=xMapPos+'rem';}
+  else {}
+}    
   }//end

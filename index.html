@@ -1,26 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <style>
-        button {cursor: pointer;z-index: 99;appearance: none;}
-    </style>
-</head>
-<body>
-    <p id="print">Нажми кнопку, чтобы поменять надпись</p>
-    <button id="mybutton">Кнопка</button>
-    <script>
-        { 
-        let z = 1;
-        let x = document.getElementById("mybutton");
-                          x.onclick = fun;
-                          function fun() 
-                            {
-                             z++;
-                             document.getElementById('print').innerHTML='Текст изменён '+z+' раз!';
-                            }
-        }
-    </script>
-</body>
-</html>
+<!doctype html>
+  <html lang="ru">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, user-scalable=no">
+      <title>Document</title>
+      <link rel="stylesheet" href="style.css">  
+    </head>
+    <body>
+      <section>
+        <p id="print">listerning...</p>
+      </section>
+      <section>
+        <div id="game">
+          <div id="walking_sector">
+            <div id="map">
+              <div id="sea"></div>
+              <div id="mappic"></div>
+            </div>
+            <div id="ball">
+                <img src="dasha.png" alt="Dasha" id="ballimg">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <input type="button" id="up" value="">
+      </section>
+      <section>
+        <input type="button" id="left" value="">
+        <input type="button" id="down" value="">
+        <input type="button" id="right" value="">
+      </section>
+      <script src="code.js"></script>
+    </body>
+  </html>
